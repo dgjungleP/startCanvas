@@ -10,6 +10,25 @@
         //2、获取上下文环境对象context
         var cxt = cnv.getContext("2d");
         //3、开始绘制图形
+        var r = 255,
+          g = 0,
+          b = 0;
+        for (i = 0; i < 150; i++) {
+          if (i < 25) {
+            g += 10;
+          } else if (i > 25 && i < 50) {
+            r -= 10;
+          } else if (i > 50 && i < 75) {
+            g -= 10;
+            b += 10;
+          } else if (i >= 75 && i < 100) {
+            r += 10;
+          } else {
+            b -= 10;
+          }
+          cxt.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+          cxt.fillRect(3 * i, 0, 3, cnv.height);
+        }
       };
     </script>
   </head>
